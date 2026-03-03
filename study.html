@@ -7,266 +7,88 @@
   <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --cream: #f5f0e8;
-      --warm-white: #faf7f2;
-      --dark: #1a1a1a;
-      --muted: #6b6358;
-      --accent: #8b7355;
-      --rule: #c9bfaf;
-    }
-
-    body {
-      background-color: var(--warm-white);
-      color: var(--dark);
-      font-family: 'Lato', sans-serif;
-      font-weight: 300;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* ── TOP NAV ── */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.8rem 3rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .site-title {
-      font-family: 'IM Fell English SC', serif;
-      font-size: 1rem;
-      letter-spacing: 0.06em;
-      color: var(--dark);
-      text-decoration: none;
-    }
-
-    .header-nav {
-      display: flex;
-      gap: 2.5rem;
-    }
-
-    .header-nav a {
-      font-family: 'Lato', sans-serif;
-      font-weight: 300;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .header-nav a:hover,
-    .header-nav a.active { color: var(--dark); }
-
-    /* ── CONTENT ── */
-    main {
-      flex: 1;
-      max-width: 660px;
-      margin: 0 auto;
-      padding: 5rem 2rem 6rem;
-      animation: fadeUp 0.8s ease both;
-    }
-
-    .page-label {
-      font-family: 'Lato', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-
-    h1 {
-      font-family: 'IM Fell English SC', serif;
-      font-size: 2.4rem;
-      color: var(--dark);
-      margin-bottom: 2rem;
-      letter-spacing: 0.02em;
-      line-height: 1.2;
-    }
-
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: var(--rule);
-      margin-bottom: 2.5rem;
-    }
-
-    p {
-      font-family: 'IM Fell English', serif;
-      font-size: 1.05rem;
-      line-height: 1.9;
-      color: #3a3530;
-      margin-bottom: 1.4rem;
-    }
-
-    p em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    /* ── PROCESS STEPS ── */
-    .steps {
-      margin: 2.5rem 0;
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-      padding: 2rem 0;
-    }
-
-    .step {
-      display: flex;
-      gap: 1.5rem;
-      align-items: flex-start;
-      margin-bottom: 1.4rem;
-    }
-
-    .step:last-child { margin-bottom: 0; }
-
-    .step-num {
-      font-family: 'IM Fell English SC', serif;
-      font-size: 1.1rem;
-      color: var(--rule);
-      min-width: 1.8rem;
-      padding-top: 0.1rem;
-    }
-
-    .step-text {
-      font-family: 'IM Fell English', serif;
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #3a3530;
-    }
-
-    .step-text strong {
-      font-weight: 400;
-      color: var(--dark);
-    }
-
-    .cta-btn {
-      display: inline-block;
-      margin-top: 2rem;
-      font-family: 'Lato', sans-serif;
-      font-weight: 400;
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--warm-white);
-      background: var(--dark);
-      padding: 0.85rem 2.2rem;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .cta-btn:hover {
-      background: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-top: 1.5rem;
-      margin-left: 1.5rem;
-      font-family: 'Lato', sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .back-link:hover {
-      color: var(--dark);
-      border-color: var(--dark);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 2.5rem 2rem;
-      font-family: 'Lato', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      border-top: 1px solid var(--rule);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 600px) {
-      header { padding: 1.4rem 1.5rem; }
-      .header-nav { gap: 1.5rem; }
-      main { padding: 3rem 1.5rem 4rem; }
-    }
+    :root { --cream: #f5f0e8; --warm-white: #faf7f2; --dark: #1a1a1a; --muted: #6b6358; --accent: #8b7355; --rule: #c9bfaf; }
+    body { background-color: var(--warm-white); color: var(--dark); font-family: 'Lato', sans-serif; font-weight: 300; min-height: 100vh; display: flex; flex-direction: column; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 1.8rem 3rem; border-bottom: 1px solid var(--rule); }
+    .site-title { font-family: 'IM Fell English SC', serif; font-size: 1rem; letter-spacing: 0.06em; color: var(--dark); text-decoration: none; }
+    .header-nav { display: flex; gap: 2.5rem; }
+    .header-nav a { font-family: 'Lato', sans-serif; font-weight: 300; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .header-nav a:hover, .header-nav a.active { color: var(--dark); }
+    main { flex: 1; max-width: 700px; margin: 0 auto; padding: 5rem 2rem 6rem; animation: fadeUp 0.8s ease both; }
+    .page-label { font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
+    h1 { font-family: 'IM Fell English SC', serif; font-size: 2.4rem; color: var(--dark); margin-bottom: 2rem; letter-spacing: 0.02em; line-height: 1.2; }
+    .divider { width: 50px; height: 1px; background: var(--rule); margin-bottom: 2.5rem; }
+    p { font-family: 'IM Fell English', serif; font-size: 1.05rem; line-height: 1.9; color: #3a3530; margin-bottom: 1.4rem; }
+    p em { font-style: italic; color: var(--accent); }
+    a { color: var(--accent); }
+    .meta-block { border-left: 2px solid var(--rule); padding: 1rem 1.5rem; margin-bottom: 2rem; }
+    .meta-block p { font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--muted); }
+    .meta-block .study-title { font-style: italic; margin-bottom: 0.8rem; }
+    .contact-block { background: var(--cream); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 1.5rem 0; margin: 2rem 0; }
+    .contact-block p { font-size: 0.95rem; margin-bottom: 0.8rem; }
+    .contact-block p:last-child { margin-bottom: 0; }
+    .agree-section { text-align: center; margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--rule); }
+    .agree-section p { font-size: 0.95rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .cta-btn { display: inline-block; font-family: 'Lato', sans-serif; font-weight: 400; font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-white); background: var(--dark); padding: 0.85rem 2.2rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .cta-btn:hover { background: var(--accent); transform: translateY(-2px); }
+    .back-link { display: inline-block; margin-top: 1.5rem; font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .back-link:hover { color: var(--dark); border-color: var(--dark); }
+    footer { text-align: center; padding: 2.5rem 2rem; font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--rule); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 600px) { header { padding: 1.4rem 1.5rem; } .header-nav { gap: 1.5rem; } main { padding: 3rem 1.5rem 4rem; } }
   </style>
 </head>
 <body>
-
   <header>
     <a href="index.html" class="site-title">Shopping Mall 1999</a>
     <nav class="header-nav">
       <a href="study.html" class="active">About the Study</a>
+      <a href="https://ucf.qualtrics.com/jfe/form/SV_b8xjPPS7rF4tmvQ" target="_blank">Pre-Test</a>
+      <a href="game.html">Enter the Mall</a>
+      <a href="https://ucf.qualtrics.com/jfe/form/SV_8jP7HcbQqAioUWW" target="_blank">Post-Test</a>
       <a href="about.html">About the Author</a>
       <a href="olivers-day.html">Adventures of Oliver</a>
-      <a href="game.html">Enter the Mall</a>
     </nav>
   </header>
 
-  <main>
+    <main>
     <p class="page-label">About the Study</p>
-    <h1>An Interactive Narrative Research Study</h1>
+    <h1>Explanation of Research</h1>
     <div class="divider"></div>
 
-    <p>
-      <em>Shopping Mall 1999</em> is an interactive narrative game created as part of a doctoral research study at the University of Central Florida's Texts &amp; Technology program.
-    </p>
-    <p>
-      This study explores how interactive storytelling tools — specifically Twine's Chapbook story format — can be used to teach foundational coding concepts to novice users. The game was designed with accessibility in mind, using minimal code syntax and a mobile-friendly format to lower barriers for both creators and learners.
-    </p>
-    <p>
-      Participants are asked to complete the following:
-    </p>
-
-    <div class="steps">
-      <div class="step">
-        <span class="step-num">I.</span>
-        <span class="step-text"><strong>Pre-Survey</strong> — A short questionnaire about your prior experience with coding and interactive fiction. Takes approximately 5 minutes.</span>
-      </div>
-      <div class="step">
-        <span class="step-num">II.</span>
-        <span class="step-text"><strong>Play the Game</strong> — Explore <em>Shopping Mall 1999</em> at your own pace. The game takes approximately 30–40 minutes to complete.</span>
-      </div>
-      <div class="step">
-        <span class="step-num">III.</span>
-        <span class="step-text"><strong>Post-Survey</strong> — A follow-up questionnaire reflecting on the experience. Takes approximately 5–10 minutes.</span>
-      </div>
+    <div class="meta-block">
+      <p class="study-title">Title of Study: &ldquo;Teaching Creative Coding Through Narrative: A Study of Twine&rsquo;s Chapbook Format and Story-Based Learning&rdquo;</p>
+      <p><strong>Principal Investigator:</strong> Richard Finch</p>
+      <p><strong>Faculty Supervisor:</strong> Dr. Emily Johnson</p>
     </div>
 
-    <p>
-      The entire session should take approximately <em>45–60 minutes</em>. Your responses are confidential and will be used solely for academic research purposes in accordance with UCF's IRB guidelines.
-    </p>
-    <p>
-      If you have any questions about the study before participating, please reach out directly.
-    </p>
+    <p>You are invited to take part in a research study. Whether you take part is up to you.</p>
 
-    <a href="game.html" class="cta-btn">Begin the Experience</a>
-    <a href="index.html" class="back-link">← Back to the Mall</a>
+    <p>The purpose of this research is to learn how you understand various coding skills and learn coding by playing an interactive story game made in Twine&rsquo;s Chapbook format. Twine is software that helps users create and build branching narrative story-based games, for example a choose your own adventure game where players have multiple choices on how to navigate the game. Within Twine there are several formats. The chosen format for this study is the Chapbook format, which is a new format in Twine that encourages simple ways to code, create, and learn. This study looks at whether Chapbook&rsquo;s simple coding tools and easy-to-read commands help people better understand coding and feel more positive about learning to code.</p>
+
+    <p>Your participation will require one session lasting 45-60 minutes. This time will include a pre-survey, game play and a follow-up post survey. The pre-survey will take place via a Qualtrics survey, the game play will consist of playing a game, if in person on a provided computer, if on Zoom via an HTML download to your computer, and the final part of the study will be a post-survey via Qualtrics. You may participate either via Zoom from any location with internet access, or on campus. The researcher will be available throughout the session to answer questions.</p>
+
+    <p>First, you will take a brief survey (5-10 minutes) about your coding experience and your current thoughts about coding. Next, you will play Shopping Mall 1999 (20-30 minutes), an interactive story game that teaches basic coding concepts through exploring a 1990s mall with a guide cat named Oliver. After playing, you will complete a post-game survey (10-15 minutes) with the same questions from the first survey, plus three short-written questions about your experience and some basic demographic information.</p>
+
+    <p>Your participation in this study is voluntary. You are free to withdraw your consent and discontinue participation in this study at any time without prejudice or penalty. Your decision to participate or not participate in this study will in no way affect your relationship with UCF, including continued enrollment, grades, employment or your relationship with the individuals who may have an interest in this study.</p>
+
+    <p>Your information or samples that are collected as part of this research will not be used or distributed for future research studies, even if all of your identifiers are removed.</p>
+
+    <div class="contact-block">
+      <p><strong>Study contact for questions about the study or to report a problem:</strong> If you have questions, concerns, or complaints: Richard Finch, Graduate Student, Texts and Technology Program, College of Arts and Humanities, <a href="mailto:Richard.finch@ucf.edu">Richard.finch@ucf.edu</a> or Dr. Emily Johnson, Faculty Supervisor, Texts and Technology Program, by email at: <a href="mailto:ekj@ucf.edu">ekj@ucf.edu</a></p>
+      <p><strong>IRB contact about your rights in this study or to report a complaint:</strong> If you have questions about your rights as a research participant, or have concerns about the conduct of this study, please contact the UCF IRB office at 407-823-2901, <a href="mailto:irb@ucf.edu">irb@ucf.edu</a>, or use the QR code to complete a feedback form.</p>
+    </div>
+
+    <div class="agree-section">
+      <p>By clicking below, you confirm that you have read and understood the above information and voluntarily agree to participate in this study.</p>
+      <a href="https://ucf.qualtrics.com/jfe/form/SV_b8xjPPS7rF4tmvQ" target="_blank" class="cta-btn">I Agree &mdash; Begin the Study</a>
+      <br/>
+      <a href="index.html" class="back-link">&larr; Return to the Mall</a>
+    </div>
   </main>
 
   <footer>
-    &copy; 2025 &nbsp;·&nbsp; University of Central Florida &nbsp;·&nbsp; Texts &amp; Technology
+    &copy; 2025 &nbsp;&middot;&nbsp; University of Central Florida &nbsp;&middot;&nbsp; Texts &amp; Technology
   </footer>
-
 </body>
 </html>
